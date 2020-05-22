@@ -1,0 +1,29 @@
+body {   
+  background: url(/static/images/garden.jpg) no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+
+.header {
+  z-index: 1;
+}
+
+.classified{
+  padding-top: 5rem;
+  text-align: center;
+}
+.card-columns{
+  padding: 1rem;
+  background: rgba(151, 148, 148, 0.267);
+  -moz-box-shadow:    0 0 10px #777777;
+  -webkit-box-shadow: 0 0 10px #777777;
+  box-shadow:         0 0 10px #777777;
+  backdrop-filter: blur(5px);
+}
+
+.card-body{
+  text-align: left;
+}

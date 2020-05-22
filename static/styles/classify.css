@@ -1,0 +1,21 @@
+
+.mainview .classified{
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  background: white;
+  border-radius: 5%;
+  -moz-box-shadow:    0 0 10px #000000;
+  -webkit-box-shadow: 0 0 10px #000000;
+  box-shadow:         0 0 10px #000000;
+}
+
+.custom-file{
+  width: 50%;
+}
+
+#card-image{
+  max-height: 25rem;
+  object-fit: cover;
+}
