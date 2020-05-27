@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="static/images/DN_signup.jpg" witdh="100%">
+    <img src="media/DN_signup.jpg" witdh="100%">
 <p>
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
@@ -17,7 +17,7 @@ Completion of the webapp and model was meant to be achieved within 3 weeks. (25.
 To view the complete WebApp run main.py to start the development server. Here is a short preview of the site:
 
 <p align="center">
-    <img src="static/images/POC.jpg" witdh="70%">
+    <img src="media/POC.jpg" witdh="70%">
 <p>
 <!-- <br><br>
 <p align="center">
