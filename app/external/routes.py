@@ -1,9 +1,13 @@
-from flask import Flask, render_template, request, send_from_directory
 import math
 
-import model
-
+from flask import Flask, redirect, render_template, request, send_from_directory, url_for
+from flask_login import current_user, login_required
+from jinja2 import TemplateNotFound
 from transformers import pipeline
+
+from app import login_manager
+from app.external import model
+from app.home import blueprint
 
 text_generator = pipeline("text-generation")
 
