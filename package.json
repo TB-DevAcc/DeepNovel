@@ -20,5 +20,12 @@
         "node": ">=10.0.0"
     },
     "dependencies": {},
-    "devDependencies": {}
+    "devDependencies": {},
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": true,
+        "singleQuote": false,
+        "printWidth": 99
+    }
 }

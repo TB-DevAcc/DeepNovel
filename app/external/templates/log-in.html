@@ -8,13 +8,15 @@
 
 {% block content %}
 <div class="container mainview">
-  <div class="position-absolute mx-3 my-3"><a href="{{ url_for('index') }}"><button type="button" class="btn btn-outline-secondary">Home</button></a></div>
-<div class="row text-center">
+  <div class="position-absolute mx-3 my-3"><a href="{{ url_for('index') }}"><button type="button"
+        class="btn btn-outline-secondary">Home</button></a></div>
+  <div class="row text-center">
     <form class="form-signin shadow-lg rounded">
       <img class="mb-4" src="{{ url_for('static', filename='images/icon.png')}}" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-bold">Sign in</h1>
       <label for="inputEmail" class="sr-only">Email address or Username</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address or Username" required="" autofocus="">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address or Username" required=""
+        autofocus="">
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
       <div class="checkbox mb-3 font-weight-bold">
@@ -25,7 +27,7 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <p class="mt-5 mb-3 text-muted">© 2020</p>
     </form>
-</div>
+  </div>
 </div>
 
 {% endblock %}

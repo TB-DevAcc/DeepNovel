@@ -18,7 +18,7 @@
                     &:before {
                         width: 60px;
                         height: 60px;
-                        background: rgba($black, .5);
+                        background: rgba($black, 0.5);
                         border-radius: 100%;
                         font-size: 1.875rem;
                         font-weight: bold;
@@ -55,7 +55,7 @@
                     color: #a7afb7;
                     margin: 0;
                     padding: 0px 2px 14px 2px !important;
-                    @media (min-width: 768px) and (max-width: 1200px ) {
+                    @media (min-width: 768px) and (max-width: 1200px) {
                         padding: 0px 2px 19px 0px;
                     }
                     i {
@@ -66,10 +66,10 @@
                             font-size: 1.25rem;
                             font-weight: normal;
                             line-height: 32px;
-                            @media (min-width: 768px) and (max-width: 1200px ) {
+                            @media (min-width: 768px) and (max-width: 1200px) {
                                 width: 20px;
                                 height: 20px;
-                                font-size: .75rem;
+                                font-size: 0.75rem;
                                 line-height: 20px;
                             }
                         }
@@ -88,4 +88,3 @@
         }
     }
 }
-

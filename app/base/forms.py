@@ -5,8 +5,8 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from flask_wtf import FlaskForm
-from wtforms import TextField, PasswordField
-from wtforms.validators import InputRequired, Email, DataRequired
+from wtforms import PasswordField, TextField
+from wtforms.validators import DataRequired, Email, InputRequired
 
 ## login and registration
 

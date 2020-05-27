@@ -1,5 +1,5 @@
-body { 
-    background: url(/static/images/main.jpg) no-repeat fixed; 
+body {
+    background: url(/static/images/main.jpg) no-repeat fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -11,11 +11,11 @@ body {
     min-height: 95vh;
 }
 
-.mainview .row{
+.mainview .row {
     min-height: 95vh;
 }
 
-.form-signup{
+.form-signup {
     background-color: rgba(248, 249, 250, 0.89);
     max-height: 95vh;
     overflow: auto;

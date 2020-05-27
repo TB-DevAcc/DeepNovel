@@ -1,8 +1,8 @@
-  (function($) {
-    'use strict';
+(function ($) {
+    "use strict";
     var options = {
-      valueNames: ['name', 'born']
+        valueNames: ["name", "born"],
     };
 
-    var userList = new List('users', options);
-  })(jQuery);
+    var userList = new List("users", options);
+})(jQuery);

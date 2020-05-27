@@ -108,7 +108,7 @@
 
 /*-------------------------------------------------------------------*/
 /* === Import template variables === */
-@import './variables';
+@import "./variables";
 
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
@@ -228,7 +228,7 @@
 /* === Landing screens === */
 @import "components/landing-screens/auth";
 
-@import './navbar';
-@import './sidebar';
-@import './layouts';
-@import './vertical/vertical-wrapper';
+@import "./navbar";
+@import "./sidebar";
+@import "./layouts";
+@import "./vertical/vertical-wrapper";

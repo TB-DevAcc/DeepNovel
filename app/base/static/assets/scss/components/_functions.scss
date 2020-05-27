@@ -1,6 +1,5 @@
 // Functions
 
 @function social-color($key: "twitter") {
-  @return map-get($social-colors, $key);
+    @return map-get($social-colors, $key);
 }
-

@@ -14,13 +14,13 @@
         padding: 0;
         margin: 0;
 
-        >li {
+        > li {
             display: block;
             padding: 0;
         }
     }
 
-    >.steps {
+    > .steps {
         .current-info {
             position: absolute;
             left: -999em;
@@ -34,8 +34,8 @@
             font-size: $default-font-size;
         }
 
-        >ul {
-            >li {
+        > ul {
+            > li {
                 width: 25%;
 
                 @media (max-width: 767px) {
@@ -89,7 +89,7 @@
                 cursor: default;
 
                 &:active {
-                    background: color(gray-lightest)e;
+                    background: color(gray-lightest) e;
                     color: color(gray);
                     cursor: default;
                 }
@@ -101,8 +101,6 @@
                 background: rgba(0, 136, 204, 0.2);
                 color: color(white);
                 cursor: default;
-
-                
 
                 &:active {
                     background: theme-color(primary);
@@ -147,8 +145,8 @@
         }
     }
 
-    >.content {
-        >.title {
+    > .content {
+        > .title {
             position: absolute;
             left: -999em;
         }
@@ -163,7 +161,7 @@
         -moz-border-radius: 5px;
         border-radius: 5px;
 
-        >.body {
+        > .body {
             float: left;
             position: absolute;
             width: 95%;
@@ -174,12 +172,12 @@
             ul {
                 list-style: disc;
 
-                >li {
+                > li {
                     display: list-item;
                 }
             }
 
-            >iframe {
+            > iframe {
                 border: 0 none;
                 width: 100%;
                 height: 100%;
@@ -213,11 +211,11 @@
         }
     }
 
-    >.actions {
+    > .actions {
         padding-top: 20px;
 
-        >ul {
-            >li {
+        > ul {
+            > li {
                 float: left;
                 margin: 0 0.5em;
             }
@@ -244,7 +242,7 @@
     }
 
     &.vertical {
-        >.steps {
+        > .steps {
             display: inline;
             float: left;
             width: 30%;
@@ -253,8 +251,8 @@
                 width: 42%;
             }
 
-            >ul {
-                >li {
+            > ul {
+                > li {
                     float: none;
                     width: 100%;
                     text-align: left;
@@ -262,7 +260,7 @@
             }
         }
 
-        >.content {
+        > .content {
             display: inline;
             float: left;
             margin: 0 2.5% 0.5em 2.5%;
@@ -273,7 +271,7 @@
             }
         }
 
-        >.actions {
+        > .actions {
             display: inline;
             float: right;
             margin: 0 2.5%;
@@ -284,8 +282,8 @@
                 width: 100%;
             }
 
-            >ul {
-                >li {
+            > ul {
+                > li {
                     margin: 0 0 0 1em;
                 }
             }
@@ -307,13 +305,13 @@
         padding: 0;
         margin: 0;
 
-        >li {
+        > li {
             display: block;
             padding: 0;
         }
     }
 
-    >.steps {
+    > .steps {
         .current-info {
             position: absolute;
             left: -999em;
@@ -323,13 +321,13 @@
         display: block;
         width: 100%;
 
-        >ul {
+        > ul {
             position: relative;
             margin: 6px 0 0 0;
             top: 1px;
             z-index: 1;
 
-            >li {
+            > li {
                 float: left;
                 margin: 5px 2px 0 0;
                 padding: 1px;
@@ -346,7 +344,7 @@
                     padding: 0;
                 }
 
-                >a {
+                > a {
                     color: color(gray-light);
                     display: inline-block;
                     border: 0 none;
@@ -360,22 +358,22 @@
                 }
             }
 
-            >li.current {
+            > li.current {
                 background: color(white);
                 border: 1px solid $border-color;
                 border-bottom: 0 none;
                 padding: 0 0 1px 0;
                 margin-top: 0;
 
-                >a {
+                > a {
                     padding: 15px 30px 10px 30px;
                 }
             }
         }
     }
 
-    >.content {
-        >.title {
+    > .content {
+        > .title {
             position: absolute;
             left: -999em;
         }
@@ -388,7 +386,7 @@
         border-top: 1px solid $border-color;
         padding-top: 20px;
 
-        >.body {
+        > .body {
             float: left;
             position: absolute;
             width: 95%;
@@ -398,7 +396,7 @@
             ul {
                 list-style: disc;
 
-                >li {
+                > li {
                     display: list-item;
                 }
             }

@@ -1,6 +1,6 @@
-(function($) {
-  'use strict';
-  $("my-awesome-dropzone").dropzone({
-    url: "bootstrapdash.com/"
-  });
+(function ($) {
+    "use strict";
+    $("my-awesome-dropzone").dropzone({
+        url: "bootstrapdash.com/",
+    });
 })(jQuery);

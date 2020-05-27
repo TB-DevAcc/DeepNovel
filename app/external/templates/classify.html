@@ -11,18 +11,21 @@
 <div class="container mainview mx-0">
   <!-- Header -->
   <div class="header position-absolute mx-3 my-3">
-    <a href="{{ url_for('index') }}" class="px-2"><button type="button" class="btn btn-outline-secondary">Home</button></a>
-    <a href="{{ url_for('overview') }}" class="px-2"><button type="button" class="btn btn-outline-secondary">Overview</button></a>
-    <a href="{{ url_for('demo') }}" class="px-2"><button type="button" class="btn btn-outline-secondary">Classify</button></a>
+    <a href="{{ url_for('index') }}" class="px-2"><button type="button"
+        class="btn btn-outline-secondary">Home</button></a>
+    <a href="{{ url_for('overview') }}" class="px-2"><button type="button"
+        class="btn btn-outline-secondary">Overview</button></a>
+    <a href="{{ url_for('demo') }}" class="px-2"><button type="button"
+        class="btn btn-outline-secondary">Classify</button></a>
   </div>
 
   <!-- Content -->
   <div class="row catNdog">
     <div class="cat col-{{cat_cols}}">
-      
+
     </div>
     <div class="dog col-{{dog_cols}}">
-      
+
     </div>
   </div>
 
@@ -40,16 +43,16 @@
       <!-- New Upload -->
       <div class="card-body">
         <form action="/demo" method="post" enctype="multipart/form-data">
-          <div class="file">   
-            
+          <div class="file">
+
             <div class="custom-file">
               <input type="file" class="custom-file-input" name="image" id="image">
               <label class="custom-file-label mx-auto" for="image" id="image-label"></label>
             </div>
             <input type="submit" value="Classify" class="btn btn-danger" name="image" id="classify_button">
-          
+
           </div>
-          
+
         </form>
       </div>
     </div>

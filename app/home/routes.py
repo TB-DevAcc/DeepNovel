@@ -4,11 +4,12 @@ MIT License
 Copyright (c) 2019 - present AppSeed.us
 """
 
-from app.home import blueprint
-from flask import render_template, redirect, url_for
-from flask_login import login_required, current_user
-from app import login_manager
+from flask import redirect, render_template, url_for
+from flask_login import current_user, login_required
 from jinja2 import TemplateNotFound
+
+from app import login_manager
+from app.home import blueprint
 
 
 @blueprint.route("/index")

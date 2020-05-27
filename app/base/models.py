@@ -8,7 +8,6 @@ from flask_login import UserMixin
 from sqlalchemy import Binary, Column, Integer, String
 
 from app import db, login_manager
-
 from app.base.util import hash_pass
 
 
