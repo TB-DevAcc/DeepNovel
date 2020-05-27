@@ -37,8 +37,7 @@ $colors: (
     gray-lightest: #e6e9ed,
     gray-dark: #12151e,
     dm-black: #191c24,
-    // dark mode
-        //dm-black: invert(#191c24), // white mode
+    // dark mode or invert(#191c24) -> white mode
         black: #000000,
 );
 
