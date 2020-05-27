@@ -30,4 +30,4 @@ app = create_app(app_config)
 Migrate(app, db)
 
 if __name__ == "__main__":
-    app.run()
+    app.run()  # 0.0.0.0:5005

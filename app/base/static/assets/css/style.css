@@ -20609,17 +20609,17 @@ div.tagsinput {
       .sidebar .sidebar-brand-wrapper .sidebar-brand:active, .sidebar .sidebar-brand-wrapper .sidebar-brand:focus, .sidebar .sidebar-brand-wrapper .sidebar-brand:hover {
         color: #252b3e; }
       .sidebar .sidebar-brand-wrapper .sidebar-brand img {
-        width: calc(244px - 120px);
+        width: calc(544px - 120px);
         max-width: 100%;
-        height: 28px;
+        height: 35px;
         margin: auto;
         vertical-align: middle; }
       .sidebar .sidebar-brand-wrapper .sidebar-brand.brand-logo-mini {
         display: none; }
         .sidebar .sidebar-brand-wrapper .sidebar-brand.brand-logo-mini img {
-          width: calc(70px - 50px);
+          width: calc(85px - 50px);
           max-width: 100%;
-          height: 28px;
+          height: 35px;
           margin: auto; }
   .sidebar .nav {
     overflow: hidden;

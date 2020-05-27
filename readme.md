@@ -38,6 +38,7 @@ HuggingFace, OpenAi and others for their work and research. A full list of used 
 
 Page-Icon made by <a href="https://www.flaticon.com/free-icon/book_2506510" title="srip">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 Main-site Background by [Kaboompics .com](https://www.pexels.com/@kaboompics?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) from [Pexels](https://www.pexels.com/photo/blank-paper-with-pen-and-coffee-cup-on-wood-table-6357/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
+<div class="https://www.dafont.com/autograf.font"></div>
 
 
 ### 📝 License
