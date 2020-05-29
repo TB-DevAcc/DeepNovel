@@ -20,7 +20,10 @@
         "node": ">=10.0.0"
     },
     "dependencies": {
-        "sass": "^1.26.5"
+        "react-dom": "^16.13.1",
+        "sass": "^1.26.5",
+        "slate": "^0.58.1",
+        "slate-react": "^0.58.2"
     },
     "devDependencies": {},
     "prettier": {
