@@ -50,3 +50,4 @@ static/uploads
 # Media Raw #
 #############
 *.aep
+node_modules
