@@ -37,8 +37,12 @@ $colors: (
     gray-lightest: #e6e9ed,
     gray-dark: #12151e,
     dm-black: #191c24,
-    // dark mode or invert(#191c24) -> white mode
-        black: #000000,
+    black: #000000,
+    mellow-white: #fffcf8,
+    viridian-green: #0fa3b1,
+    imperial-red: #ee1e3a,
+    mellow-apricot: #f7b267,
+    eerie-black: #141414,
 );
 
 $theme-colors: (
@@ -54,11 +58,19 @@ $theme-colors: (
 
 ////////// COLOR SYSTEM //////////
 
+////////// COLOR GROUPS //////////
+$bg-group: transparentize(color(viridian-green), 0.6);
+$navbar-group: color(mellow-white);
+$content-group: color(mellow-white);
+$accent-group-1: color(mellow-apricot);
+$focus-group: color(imperial-red);
+////////// COLOR GROUPS //////////
+
 ////////// COLOR VARIABLES //////////
-$content-bg: transparentize(color(custom-red), 0.85);
+$content-bg: $bg-group;
 $footer-bg: $content-bg;
-$footer-color: color(dark);
-$footer-color-light: color(light);
+$footer-color: $bg-group;
+$footer-color-light: $content-group;
 $border-color: #2c2e33;
 ////////// COLOR VARIABLES //////////
 
@@ -91,15 +103,15 @@ $font-weight-bold: 700;
 
 $default-font-size: 0.875rem; // 14px as base font size
 
-$text-muted: #6c7293;
-$body-color: #ffffff;
+$text-muted: invert($content-group); //#6c7293
+$body-color: $content-group;
 
 ////////// FONT VARIABLES //////////
 
 ///////// CARD ////////
-$card-bg: color(dm-black);
-$card-description-color: #bfbfbf;
-$card-title-color: #ffffff;
+$card-bg: $content-group;
+$card-description-color: invert($card-bg); // #bfbfbf
+$card-title-color: invert($card-bg); // #ffffff
 ///////// CARD ////////
 
 //////// TABLES ////////
@@ -119,10 +131,10 @@ $modal-content-bg: $content-bg;
 ////////// MODALS VARIABLES //////////
 
 ///////// NAVBAR ////////
-$navbar-bg: color(dm-black);
+$navbar-bg: $navbar-group;
 $navbar-brand-wrapper-tinted-bg: #fa424a;
 $navbar-height: 70px;
-$navbar-menu-color: #ffffff;
+$navbar-menu-color: invert($navbar-bg);
 $navbar-font-size: 0.9375rem;
 $navbar-icon-font-size: 1.125rem;
 
@@ -133,23 +145,26 @@ $sidebar-width-lg: 244px;
 $sidebar-width-mini: 185px;
 $sidebar-width-icon: 70px;
 
-$sidebar-dark-bg: color(dm-black);
-$sidebar-dark-menu-color: $text-muted;
-$sidebar-dark-menu-active-bg: darken($sidebar-dark-bg, 5%);
-$sidebar-dark-menu-active-color: #ffffff;
-$sidebar-dark-menu-hover-bg: darken($sidebar-dark-bg, 5%);
-$sidebar-dark-menu-hover-color: color(white);
+$sidebar-dark-bg: $navbar-group;
+$sidebar-dark-menu-color: invert($sidebar-dark-bg);
+$sidebar-dark-menu-active-bg: $accent-group-1;
+$sidebar-dark-menu-active-color: invert($accent-group-1);
+$sidebar-dark-menu-hover-bg: $sidebar-dark-menu-active-bg;
+$sidebar-dark-menu-hover-color: $sidebar-dark-menu-active-color;
 $sidebar-dark-submenu-color: $sidebar-dark-menu-color;
 $sidebar-dark-submenu-hover-bg: initial;
-$sidebar-dark-submenu-hover-color: #ffffff;
-$sidebar-dark-menu-icon-color: #bba8bff5;
-$sidebar-dark-menu-arrow-color: rgba($text-muted, 0.36);
+$sidebar-dark-submenu-hover-color: $sidebar-dark-menu-hover-color;
+$sidebar-dark-menu-icon-bg: color(white);
+$sidebar-dark-menu-icon-color: color(black);
 
 $sidebar-tinted-bg: #fa424a;
 $sidebar-tinted-menu-color: #ffffff;
 $sidebar-tinted-menu-active-bg: rgba(12, 14, 14, 0.1);
 $sidebar-tinted-menu-hover-bg: rgba(12, 14, 14, 0.1);
 $sidebar-tinted-menu-arrow-color: rgba($sidebar-tinted-menu-color, 0.36);
+
+$sidebar-text: invert($sidebar-dark-bg);
+$sidebar-dark-menu-arrow-color: rgba($sidebar-text, 0.36);
 
 $sidebar-menu-font-size: 0.9375rem;
 $sidebar-menu-padding-y: 0.8rem;
@@ -181,6 +196,8 @@ $navbar-box-shadow-rtl: -34px 19px 34px -15px $content-bg;
 ///////// SIDEBAR ////////
 
 ///////// BUTTONS ////////
+
+$accent-button: $accent-group-1;
 
 $button-fixed-width: 150px;
 $btn-padding-y: 0.375rem;

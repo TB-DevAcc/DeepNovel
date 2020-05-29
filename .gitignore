@@ -47,3 +47,6 @@ __pycache__*
 saved_model/test1
 static/uploads
 
+# Media Raw #
+#############
+*.aep

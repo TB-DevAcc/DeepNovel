@@ -27,6 +27,11 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="loader-wrapper">
+    <img src="/static/assets/images/loading_logo.gif" alt="Preloading" />
+  </div>
+
   <div class="container-scroller">
 
     {% include 'includes/sidebar.html' %}
@@ -52,6 +57,9 @@
   <!-- container-scroller -->
 
   <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+
+  <!-- Preloader -->
+  <script src="/static/assets/js/preloader.js"></script>
 
   <!-- Specific Plugin JS goes HERE  -->
   {% block plugin_javascripts %}{% endblock plugin_javascripts %}

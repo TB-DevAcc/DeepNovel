@@ -3,7 +3,7 @@ body,
 html {
     overflow-x: hidden;
     padding-right: 0 !important; // resets padding right added by Bootstrap modal
-    background-color: color(dm-black);
+    background-color: $navbar-bg;
 }
 
 *:-moz-full-screen,
