@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
 
+<!-- Include quill stylesheet -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
 {% endblock plugin_stylesheets %}
 
 <!-- Specific CSS goes HERE -->
@@ -19,7 +22,14 @@
 {% block content %}
 
 <div class="content-wrapper">
-  <div id="editor-wrapper"></div>
+
+  <!-- Create the editor container -->
+  <div id="editor">
+    <p>Hello World!</p>
+    <p>Some initial <strong>bold</strong> text</p>
+    <p><br></p>
+  </div>
+</div>
 </div>
 
 {% endblock content %}
@@ -33,14 +43,15 @@
 <script src="/static/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <script src="/static/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
 
-<!-- slatejs -->
-<script type="module" src="/static/components/slate.js"></script>
-
 {% endblock plugin_javascripts %}
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
 
-<script src="/static/assets/js/dashboard.js"></script>
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script src="/static/assets/js/editor.js"></script>
 
 {% endblock javascripts %}

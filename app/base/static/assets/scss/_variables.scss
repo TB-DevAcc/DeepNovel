@@ -164,6 +164,7 @@ $sidebar-tinted-menu-hover-bg: rgba(12, 14, 14, 0.1);
 $sidebar-tinted-menu-arrow-color: rgba($sidebar-tinted-menu-color, 0.36);
 
 $sidebar-text: invert($sidebar-dark-bg);
+$sidebar-text-hover: darken($sidebar-text, 0.3);
 $sidebar-dark-menu-arrow-color: rgba($sidebar-text, 0.36);
 
 $sidebar-menu-font-size: 0.9375rem;

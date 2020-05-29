@@ -6,6 +6,7 @@
         font-size: $default-font-size;
         box-shadow: $dropdown-menu-box-shadow;
         .dropdown-item {
+            color: $sidebar-text;
             font-size: 1rem;
             padding: 0.25rem 1.5rem;
             &:active {

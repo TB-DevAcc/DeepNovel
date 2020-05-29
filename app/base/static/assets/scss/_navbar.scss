@@ -232,11 +232,12 @@
                             .dropdown-item {
                                 @extend .d-flex;
                                 @extend .align-items-center;
+                                color: $sidebar-text;
                                 margin-bottom: 0;
                                 padding: 11px 13px;
                                 cursor: pointer;
                                 &:hover {
-                                    color: #fff;
+                                    color: $sidebar-text-hover;
                                 }
                                 i {
                                     font-size: 17px;

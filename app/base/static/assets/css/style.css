@@ -16054,6 +16054,7 @@ code {
 }
 
 .dropdown .dropdown-menu .dropdown-item {
+  color: #000307;
   font-size: 1rem;
   padding: 0.25rem 1.5rem;
 }
@@ -17932,6 +17933,11 @@ div.tagsinput {
   text-decoration: line-through;
   -webkit-text-decoration-color: #0090e7;
           text-decoration-color: #0090e7;
+}
+
+#editor {
+  background: #fffcf8;
+  color: #000307;
 }
 
 /*-------------------------------------------------------------------*/
@@ -21244,13 +21250,14 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .dropdown-menu.navbar-dropdown .dropdown-item {
+  color: #000307;
   margin-bottom: 0;
   padding: 11px 13px;
   cursor: pointer;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .dropdown-menu.navbar-dropdown .dropdown-item:hover {
-  color: #fff;
+  color: #000205;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .dropdown-menu.navbar-dropdown .dropdown-item i {
@@ -21767,6 +21774,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav .nav-item.profile .profile-desc .dropdown-menu .dropdown-item {
+  color: #000307;
   padding: 11px 13px;
 }
 

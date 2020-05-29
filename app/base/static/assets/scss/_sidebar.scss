@@ -284,12 +284,13 @@
                     }
                     .mdi-dots-vertical {
                         font-size: 20px;
-                        color: $text-muted;
+                        color: $sidebar-text;
                     }
                     .dropdown-menu {
                         padding: 0;
                         margin-top: 1.25rem;
                         .dropdown-item {
+                            color: $sidebar-text;
                             padding: 11px 13px;
                             &.preview-item {
                                 align-items: center;
