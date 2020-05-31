@@ -17645,6 +17645,24 @@ div.tagsinput {
   margin-bottom: 0;
 }
 
+.table th a, .jsgrid .jsgrid-table th a,
+.table td a,
+.jsgrid .jsgrid-table td a {
+  text-decoration: none;
+  color: #000307;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.table th a:hover, .jsgrid .jsgrid-table th a:hover,
+.table td a:hover,
+.jsgrid .jsgrid-table td a:hover {
+  text-decoration: none;
+  color: #ee1e3a;
+}
+
 .table.table-borderless, .jsgrid .table-borderless.jsgrid-table {
   border: none;
 }
@@ -17938,6 +17956,19 @@ div.tagsinput {
 #editor {
   background: #fffcf8;
   color: #000307;
+}
+
+#toolbar {
+  background: #fffcf8;
+  color: #000307;
+}
+
+#toolbar #save-button {
+  background-color: rgba(0, 210, 91, 0.2);
+}
+
+#toolbar #delete-button {
+  background-color: rgba(252, 66, 74, 0.2);
 }
 
 /*-------------------------------------------------------------------*/

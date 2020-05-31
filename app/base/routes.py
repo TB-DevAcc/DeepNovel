@@ -52,6 +52,7 @@ def login():
 
     if not current_user.is_authenticated:
         return render_template("accounts/login.html", form=login_form)
+
     return redirect(url_for("home_blueprint.index"))
 
 

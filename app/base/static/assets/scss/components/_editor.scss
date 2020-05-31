@@ -2,3 +2,14 @@
     background: $card-bg;
     color: $card-description-color;
 }
+
+#toolbar {
+    background: $card-bg;
+    color: $card-description-color;
+    #save-button {
+        background-color: rgba(0, 210, 91, 0.2);
+    }
+    #delete-button {
+        background-color: rgba(252, 66, 74, 0.2);
+    }
+}
