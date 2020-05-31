@@ -4,7 +4,7 @@ MIT License
 Copyright (c) 2019 - present AppSeed.us
 """
 
-from flask import abort, flash, jsonify, redirect, render_template, request, url_for
+from flask import abort, flash, json, jsonify, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from jinja2 import TemplateNotFound
 
@@ -81,6 +81,24 @@ def update_post(post_id):
     return render_template(
         "create_post.html", title="Update Post", form=form, legend="Update Post"
     )
+
+
+@blueprint.route("/editor/<int:post_id>/update_content", methods=["POST"])
+@login_required
+def update_content(post_id):
+    try:
+        post = Post.query.get_or_404(post_id)
+        if post.author != current_user:
+            abort(403)
+        form = PostForm()
+        post.content = request.form["doc"]
+        # # remove quotation marks
+        # post.content = post.content[1:-1]
+        print("Changed content to:", post.content)
+        db.session.commit()
+        return json.dumps({"success": True}), 200, {"ContentType": "text"}
+    except Exception as e:
+        return json.dumps({"success": False}), 500, {"ContentType": "text"}
 
 
 @blueprint.route("/editor/<int:post_id>/delete", methods=["POST"])
