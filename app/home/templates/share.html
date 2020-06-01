@@ -1,0 +1,80 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific Plugin CSS goes HERE -->
+{% block plugin_stylesheets %}
+
+<!-- Plugin css for this page -->
+<link rel="stylesheet" href="/static/assets/vendors/jvectormap/jquery-jvectormap.css">
+<link rel="stylesheet" href="/static/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+<link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+<link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+
+{% endblock plugin_stylesheets %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="content-wrapper">
+  <!-- Document Overview -->
+  <div class="row ">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Your Documents</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th> Owner </th>
+                  <th> Title </th>
+                  <th> Created on </th>
+                  <th> Preview </th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in range(posts|length) %}
+                <tr>
+                  <td>
+                    <img src="/static/assets/images/faces/face1.jpg" alt="image">
+                    <span class="pl-2">{{ user.username }}</span>
+                  </td>
+                  <td><a class="post-link" href="{{ url_for('home_blueprint.post', post_id=posts[i].id) }}">
+                      {{ posts[i].title }}
+                    </a></td>
+                  <td> {{ posts[i].date_posted }} </td>
+                  <td> {{ ' '.join(posts[i].content.split()[:5]) | safe + ' ...' }} </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Document Overview End -->
+</div>
+
+{% endblock content %}
+
+<!-- Specific Plugin JS goes HERE  -->
+{% block plugin_javascripts %}
+
+<script src="/static/assets/vendors/chart.js/Chart.min.js"></script>
+<script src="/static/assets/vendors/progressbar.js/progressbar.min.js"></script>
+<script src="/static/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+<script src="/static/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="/static/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+
+{% endblock plugin_javascripts %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script src="/static/assets/js/dashboard.js"></script>
+
+{% endblock javascripts %}
