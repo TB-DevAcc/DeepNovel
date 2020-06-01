@@ -39,7 +39,7 @@
                 {% for i in range(posts|length) %}
                 <tr>
                   <td>
-                    <img src="/static/assets/images/faces/face1.jpg" alt="image">
+                    <img src="{{ user.profile_picture }}" alt="image">
                     <span class="pl-2">{{ user.username }}</span>
                   </td>
                   <td><a class="post-link" href="{{ url_for('home_blueprint.post', post_id=posts[i].id) }}">
