@@ -83,22 +83,36 @@ def update_post(post_id):
     )
 
 
-@blueprint.route("/editor/<int:post_id>/update_content", methods=["POST"])
+@blueprint.route("/editor/<int:post_id>/update_content", methods=["GET", "POST"])
 @login_required
 def update_content(post_id):
-    try:
-        post = Post.query.get_or_404(post_id)
-        if post.author != current_user:
-            abort(403)
-        form = PostForm()
-        post.content = request.form["doc"]
-        # # remove quotation marks
-        # post.content = post.content[1:-1]
-        print("Changed content to:", post.content)
-        db.session.commit()
-        return json.dumps({"success": True}), 200, {"ContentType": "text"}
-    except Exception as e:
-        return json.dumps({"success": False}), 500, {"ContentType": "text"}
+    """
+    update_content receives ajax requests for the editor content. 
+    For GET requests it sends the stored content, 
+    for POST requests it stores the received value in posts.
+
+    Args:
+        post_id (string): id of the entry in the post table, that it's referring to
+
+    Returns:
+        Success or Failure
+    """
+    post = Post.query.get_or_404(post_id)
+    if post.author != current_user:
+        abort(403)
+    form = PostForm()
+    # print("METHOD", request.method)
+    if request.method == "GET":
+        # print("CONTENT", post.content)
+        return post.content
+    elif request.method == "POST":
+        # print("CONTENT", request.form)
+        try:
+            post.content = request.form["doc"]
+            db.session.commit()
+            return json.dumps({"success": True}), 200, {"ContentType": "text"}
+        except Exception as e:
+            return json.dumps({"success": False}), 500, {"ContentType": "text"}
 
 
 @blueprint.route("/editor/<int:post_id>/delete", methods=["POST"])

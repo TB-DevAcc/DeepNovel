@@ -6,18 +6,13 @@ var quill = new Quill("#editor", {
         toolbar: {
             container: "#toolbar", // Selector for toolbar container
         },
+        history: {
+            delay: 2000,
+            maxStack: 500,
+            userOnly: true,
+        },
     },
     theme: "snow",
-});
-
-var saveButton = document.querySelector("#save-button");
-saveButton.addEventListener("click", function () {
-    console.log("Document saved!");
-});
-
-var deleteButton = document.querySelector("#delete-button");
-deleteButton.addEventListener("click", function () {
-    console.log("Document saved!");
 });
 
 // Store accumulated changes
@@ -29,17 +24,12 @@ quill.on("text-change", function (delta) {
 // Save periodically
 setInterval(function () {
     if (change.length() > 0) {
-        console.log("Saving changes", change);
+        console.log("Saving changes ", change);
 
         // Send entire document
         $.post("/editor/" + post_id + "/update_content", {
-            doc: quill.getText(),
+            doc: $("#editor").find(".ql-editor").html(),
         });
-
-        console.log("MESSAGE:");
-        console.log("/editor/" + post_id + "/update_content");
-
-        console.log(JSON.stringify(quill.getText()));
 
         change = new Delta();
     }

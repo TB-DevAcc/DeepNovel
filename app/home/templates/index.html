@@ -46,7 +46,7 @@
                       {{ posts[i].title }}
                     </a></td>
                   <td> {{ posts[i].date_posted }} </td>
-                  <td> {{ posts[i].content[:35]+' ...' }} </td>
+                  <td> {{ ' '.join(posts[i].content.split()[:5]) | safe + ' ...' }} </td>
                 </tr>
                 {% endfor %}
               </tbody>
