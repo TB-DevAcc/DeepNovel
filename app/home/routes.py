@@ -29,7 +29,7 @@ def route_template(template):
         if not template.endswith(".html"):
             template += ".html"
 
-        return render_template(template)
+        return render_template(template, user=current_user)
 
     except TemplateNotFound:
         return render_template("errors/page-404.html"), 404
