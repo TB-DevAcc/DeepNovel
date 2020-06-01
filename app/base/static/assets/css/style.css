@@ -16092,7 +16092,7 @@ code {
   font-weight: normal;
   font-size: 0.875rem;
   padding: 0.625rem 0.6875rem;
-  background-color: #2a3038;
+  background-color: rgba(15, 163, 177, 0.4);
   border-radius: 2px;
   color: #ffffff;
 }
@@ -16102,7 +16102,7 @@ code {
 .tt-query:focus,
 .tt-hint:focus {
   border: 1px solid rgba(71, 164, 71, 0.5);
-  background-color: #2a3038;
+  background-color: rgba(15, 163, 177, 0.4);
 }
 
 .form-control.form-control-lg, .form-control-lg.asColorPicker-input, .dataTables_wrapper select.form-control-lg, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-lg[type="text"],
@@ -16335,6 +16335,23 @@ select.border-dark.tt-hint:focus {
 
 div.tagsinput {
   background: transparent;
+}
+
+.logo-header {
+  background: #0fa3b1;
+}
+
+.logo-header img {
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.form-signup {
+  background-color: rgba(248, 249, 250, 0.89);
+  max-height: 95vh;
+  overflow: auto;
+  color: #000307;
 }
 
 /* Icons */

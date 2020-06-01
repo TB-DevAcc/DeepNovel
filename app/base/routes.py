@@ -64,6 +64,9 @@ def register():
 
         username = request.form["username"]
         email = request.form["email"]
+        # firstname = request.form["firstname"]
+        # lastname = request.form["lastname"]
+        # phone = request.form["phone"]
 
         # Check usename exists
         user = User.query.filter_by(username=username).first()
@@ -87,6 +90,13 @@ def register():
 
         # else we can create the user
         user = User(**request.form)
+
+        # Check newsletter field and convert to boolean
+        if user.newsletter == "y":
+            user.newsletter = True
+        else:
+            user.newsletter = False
+
         db.session.add(user)
         db.session.commit()
 

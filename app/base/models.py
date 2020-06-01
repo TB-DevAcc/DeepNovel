@@ -7,7 +7,7 @@ Copyright (c) 2019 - present AppSeed.us
 from datetime import datetime
 
 from flask_login import UserMixin
-from sqlalchemy import Binary, Column, Integer, String
+from sqlalchemy import Binary, Boolean, Column, Integer, String
 
 from app import db, login_manager
 from app.base.util import hash_pass
@@ -18,9 +18,16 @@ class User(db.Model, UserMixin):
     __tablename__ = "User"
 
     id = Column(Integer, primary_key=True)
+    firstname = Column(String, unique=False)
+    lastname = Column(String, unique=False)
     username = Column(String, unique=True)
     email = Column(String, unique=True)
     password = Column(Binary)
+    phone = Column(String, unique=False)
+    profile_picture = Column(
+        String(20), nullable=False, default="/static/assets/images/faces/face1.jpg"
+    )
+    newsletter = Column(Boolean)
     posts = db.relationship("Post", backref="author", lazy=True)
 
     def __init__(self, **kwargs):

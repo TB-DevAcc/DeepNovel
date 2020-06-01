@@ -22,12 +22,12 @@
     font-weight: normal;
     font-size: $input-font-size;
     padding: 0.625rem 0.6875rem;
-    background-color: $input-bg;
+    background-color: $bg-group;
     border-radius: 2px;
     color: #ffffff;
     &:focus {
         border: 1px solid rgba(71, 164, 71, 0.5);
-        background-color: $input-bg;
+        background-color: darken($bg-group, 0.1);
     }
     &.form-control-lg {
         padding: 0.94rem 0.75rem;
@@ -100,4 +100,19 @@ div {
     &.tagsinput {
         background: transparent;
     }
+}
+
+.logo-header {
+    background: opacify($bg-group, 1);
+    img {
+        height: 80px;
+        object-fit: contain;
+    }
+}
+
+.form-signup {
+    background-color: rgba(248, 249, 250, 0.89);
+    max-height: 95vh;
+    overflow: auto;
+    color: $text-muted;
 }
