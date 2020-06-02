@@ -24,6 +24,19 @@
 <div class="content-wrapper">
   <!-- Create toolbar container -->
   <div id="toolbar">
+    <span class="ql-formats">
+      <select class="ql-font">
+        <option selected="selected"></option>
+        <option value="serif"></option>
+        <option value="monospace"></option>
+      </select>
+      <select class="ql-size">
+        <option value="small"></option>
+        <option selected="selected"></option>
+        <option value="large"></option>
+        <option value="huge"></option>
+      </select>
+    </span>
     {% for classes in formats %}
     <span class="ql-formats">
       {% for c in classes %}
@@ -35,7 +48,7 @@
       {% endfor %}
     </span>
     {% endfor %}
-    <!-- Add your own -->
+    <!-- Own Buttons -->
     <span class="ql-formats">
       <button id="generate-button" type="button" class="btn btn-inverse-warning btn-fw">Generate</button>
       <button id="delete-button" type="button" class="btn btn-inverse-danger btn-fw" data-toggle="modal"

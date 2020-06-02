@@ -62,7 +62,6 @@ def post(post_id):
     post = Post.query.get_or_404(post_id)
     form = PostForm()
     toolbar_formats = formats = [
-        ["font", "size"],
         ["bold", "italic", "underline", "strike"],
         ["color", "background"],
         [("script", "sub"), ("script", "super")],

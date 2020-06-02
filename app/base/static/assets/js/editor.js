@@ -46,8 +46,8 @@ window.onbeforeunload = function () {
 function generate() {
     // Ask server for generation
     $.get("/generate/" + post_id, function (data) {
-        console.log("INSERT: ", data);
         quill.insertText(quill.getSelection().index, data, "user");
+        quill.setSelection(quill.getLength(), 0, "user");
     });
 }
 
@@ -58,7 +58,6 @@ $("#generate-button").click(function () {
 
 // Text generation on tab press
 $("body").keydown(function (e) {
-    console.log("Tab Button clicked");
     var code = e.keyCode || e.which;
 
     if (code === 9) {
