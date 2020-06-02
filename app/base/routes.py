@@ -11,11 +11,7 @@ from app import db, login_manager
 from app.base import blueprint
 from app.base.forms import CreateAccountForm, LoginForm, PostForm
 from app.base.models import Post, User
-
-# from app.base.pipes import AI
 from app.base.util import verify_pass
-
-# ai = AI()
 
 
 @blueprint.route("/")

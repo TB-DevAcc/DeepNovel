@@ -24,28 +24,23 @@
 <div class="content-wrapper">
   <!-- Create toolbar container -->
   <div id="toolbar">
-    <!-- Add font size dropdown -->
-    <select class="ql-size">
-      <option value="small"></option>
-      <!-- Note a missing, thus falsy value, is used to reset to default -->
-      <option selected></option>
-      <option value="large"></option>
-      <option value="huge"></option>
-    </select>
-
-    <!-- Add a bold button -->
-    <button class="ql-bold"></button>
-    <button class="ql-italic"></button>
-
-    <!-- Add subscript and superscript buttons -->
-    <button class="ql-script" value="sub"></button>
-    <button class="ql-script" value="super"></button>
-
+    {% for classes in formats %}
+    <span class="ql-formats">
+      {% for c in classes %}
+      {% if isinstance(c, tuple) %}
+      <button class="ql-{{c[0]}}" value="{{c[1]}}"></button>
+      {% else %}
+      <button class="ql-{{c}}"></button>
+      {% endif %}
+      {% endfor %}
+    </span>
+    {% endfor %}
     <!-- Add your own -->
-    <!-- <a id="save-button" class="btn btn-inverse-success btn-fw"
-      href="{{ url_for('home_blueprint.update_post', post_id=post.id) }}">Save</a> -->
-    <button id="delete-button" type="button" class="btn btn-inverse-danger btn-fw" data-toggle="modal"
-      data-target="#deleteModal">Delete</button>
+    <span class="ql-formats">
+      <button id="generate-button" type="button" class="btn btn-inverse-warning btn-fw">Generate</button>
+      <button id="delete-button" type="button" class="btn btn-inverse-danger btn-fw" data-toggle="modal"
+        data-target="#deleteModal">Delete</button>
+    </span>
   </div>
 
   <!-- Create the editor container -->

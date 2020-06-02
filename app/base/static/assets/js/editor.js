@@ -1,6 +1,3 @@
-var toolbarOptions = [["bold", "italic"], ["link", "image"], { header: "3" }];
-var Delta = Quill.import("delta");
-
 var quill = new Quill("#editor", {
     modules: {
         toolbar: {
@@ -14,6 +11,8 @@ var quill = new Quill("#editor", {
     },
     theme: "snow",
 });
+
+var Delta = Quill.import("delta");
 
 // Store accumulated changes
 var change = new Delta();
@@ -41,3 +40,29 @@ window.onbeforeunload = function () {
         return "There are unsaved changes. Are you sure you want to leave?";
     }
 };
+
+// AI
+
+function generate() {
+    // Ask server for generation
+    $.get("/generate/" + post_id, function (data) {
+        console.log("INSERT: ", data);
+        quill.insertText(quill.getSelection().index, data, "user");
+    });
+}
+
+// Text generation on button press
+$("#generate-button").click(function () {
+    generate();
+});
+
+// Text generation on tab press
+$("body").keydown(function (e) {
+    console.log("Tab Button clicked");
+    var code = e.keyCode || e.which;
+
+    if (code === 9) {
+        e.preventDefault();
+        generate();
+    }
+});

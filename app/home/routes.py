@@ -13,6 +13,8 @@ from app.base.forms import PostForm
 from app.base.models import Post, User
 from app.home import blueprint
 
+# from app.base.pipes import AI
+
 
 @blueprint.route("/index")
 @login_required
@@ -59,7 +61,26 @@ def new_post():
 def post(post_id):
     post = Post.query.get_or_404(post_id)
     form = PostForm()
-    return render_template("editor.html", title=post.title, post=post, form=form)
+    toolbar_formats = formats = [
+        ["font", "size"],
+        ["bold", "italic", "underline", "strike"],
+        ["color", "background"],
+        [("script", "sub"), ("script", "super")],
+        [*[("header", f"{i}") for i in range(1, 3)], "blockquote", "code-block"],
+        [("list", "ordered"), ("list", "bullet"), ("indent", "-1"), ("indent", "+1")],
+        [("direction", "rtl"), "align"],
+        ["link", "image", "video", "formula"],
+        ["clean"],
+    ]
+    return render_template(
+        "editor.html",
+        title=post.title,
+        post=post,
+        form=form,
+        formats=toolbar_formats,
+        isinstance=isinstance,
+        tuple=tuple,
+    )
 
 
 @blueprint.route("/editor/<int:post_id>/update", methods=["GET", "POST"])
@@ -125,3 +146,20 @@ def delete_post(post_id):
     db.session.commit()
     flash("Your document has been deleted!", "success")
     return redirect(url_for("home_blueprint.index"))
+
+
+## AI requests
+
+# ai = AI()
+
+
+@blueprint.route("/generate/<int:post_id>", methods=["GET"])
+@login_required
+def generate(post_id):
+    post = Post.query.get_or_404(post_id)
+    if post.author != current_user:
+        abort(403)
+    doc = post.content
+    # doc = ai.generate(doc)
+    doc = "GENERATED TEXT"
+    return jsonify(doc), 200
