@@ -20,6 +20,9 @@ from app.home import blueprint
 @login_required
 def index():
     user_posts = Post.query.filter(Post.user_id == current_user.id).all()
+    # Make Date readable
+    for i in range(len(user_posts)):
+        user_posts[i].date_posted = user_posts[i].date_posted.strftime("%d.%m.%Y at %H:%M")
     return render_template("index.html", user=current_user, posts=user_posts)
 
 
@@ -151,14 +154,38 @@ def delete_post(post_id):
 
 # ai = AI()
 
-
-@blueprint.route("/generate/<int:post_id>", methods=["GET"])
+# Text Generation
+@blueprint.route("/generate/<int:post_id>", methods=["POST"])
 @login_required
 def generate(post_id):
+    l = int(request.form["length"])
+    if l == 1:
+        post = Post.query.get_or_404(post_id)
+        if post.author != current_user:
+            abort(403)
+        doc = post.content
+        # doc = ai.generate(doc)
+        doc = "GENERATED LINE"
+        return jsonify(doc), 200
+    elif l < 500:
+        doc = "GENERATED PARAGRAPH"
+        return jsonify(doc), 200
+    else:
+        doc = "GENERATED CHAPTER"
+        return jsonify(doc), 200
+    abort(500)
+
+
+# question-answering
+@blueprint.route("/qa/<int:post_id>/<string:question>", methods=["GET"])
+@login_required
+def answer(post_id, question):
     post = Post.query.get_or_404(post_id)
     if post.author != current_user:
         abort(403)
     doc = post.content
-    # doc = ai.generate(doc)
-    doc = "GENERATED TEXT"
+    print("DOC", doc)
+    print("Q", question)
+    # doc = ai.answer(question, doc)
+    doc = "Answer"
     return jsonify(doc), 200

@@ -23,7 +23,7 @@
 
 <div class="content-wrapper">
   <!-- Create toolbar container -->
-  <div id="toolbar">
+  <div id="toolbar" class="p-2 m-2">
     <span class="ql-formats">
       <select class="ql-font">
         <option selected="selected"></option>
@@ -49,15 +49,19 @@
     </span>
     {% endfor %}
     <!-- Own Buttons -->
+    <span class="ql-formats buttons">
+      <button id="btn-generate-1" type="button" class="btn my-2 btn-fw">Line</button> <br>
+      <button id="btn-generate-2" type="button" class="btn my-2 btn-fw">Paragraph</button> <br>
+      <button id="btn-generate-3" type="button" class="btn my-2 btn-fw">Chapter</button>
+    </span>
     <span class="ql-formats">
-      <button id="generate-button" type="button" class="btn btn-inverse-warning btn-fw">Generate</button>
       <button id="delete-button" type="button" class="btn btn-inverse-danger btn-fw" data-toggle="modal"
         data-target="#deleteModal">Delete</button>
     </span>
   </div>
 
   <!-- Create the editor container -->
-  <div id="editor">
+  <div id="editor" class="p-5 m-4">
     {{ post.content | safe }}
   </div>
 

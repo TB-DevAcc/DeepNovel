@@ -45,16 +45,11 @@ window.onbeforeunload = function () {
 
 function generate() {
     // Ask server for generation
-    $.get("/generate/" + post_id, function (data) {
+    $.post("/generate/" + post_id, { length: 1 }, function (data) {
         quill.insertText(quill.getSelection().index, data, "user");
         quill.setSelection(quill.getLength(), 0, "user");
     });
 }
-
-// Text generation on button press
-$("#generate-button").click(function () {
-    generate();
-});
 
 // Text generation on tab press
 $("body").keydown(function (e) {
@@ -64,4 +59,71 @@ $("body").keydown(function (e) {
         e.preventDefault();
         generate();
     }
+});
+
+// Question answering
+$(function () {
+    $("#main-search-form").submit(function (event) {
+        event.preventDefault();
+        console.log("LOGGING QUESTION", document.getElementById("#main-search-form").question);
+        $.get("/answer/" + post_id + "/" + $(this).question, function (data) {
+            console.log(data);
+        });
+    });
+});
+
+// Buttons
+
+$("#btn-generate-1").click(function () {
+    $("#btn-generate-1").replaceWith(
+        "<div id='btn-generate-1' class='spinner-grow text-warning'></div>"
+    );
+
+    function generate_length() {
+        // Ask server for generation
+        $.post("/generate/" + post_id, { length: 1 }, function (data) {
+            quill.insertText(quill.getSelection().index, data, "user");
+            quill.setSelection(quill.getLength(), 0, "user");
+            $("#btn-generate-1").replaceWith(
+                "<button id='btn-generate-1' type='button' class='btn my-2 btn-fw'>Line</button>"
+            );
+        });
+    }
+    generate_length();
+});
+
+$("#btn-generate-2").click(function () {
+    $("#btn-generate-2").replaceWith(
+        "<div id='btn-generate-2' class='spinner-grow text-warning'></div>"
+    );
+
+    function generate_length() {
+        // Ask server for generation
+        $.post("/generate/" + post_id, { length: 40 }, function (data) {
+            quill.insertText(quill.getSelection().index, data, "user");
+            quill.setSelection(quill.getLength(), 0, "user");
+            $("#btn-generate-2").replaceWith(
+                "<button id='btn-generate-2' type='button' class='btn my-2 btn-fw'>Paragraph</button>"
+            );
+        });
+    }
+    generate_length();
+});
+
+$("#btn-generate-3").click(function () {
+    $("#btn-generate-3").replaceWith(
+        "<div id='btn-generate-3' class='spinner-grow text-warning'></div>"
+    );
+
+    function generate_length() {
+        // Ask server for generation
+        $.post("/generate/" + post_id, { length: 4000 }, function (data) {
+            quill.insertText(quill.getSelection().index, data, "user");
+            quill.setSelection(quill.getLength(), 0, "user");
+            $("#btn-generate-3").replaceWith(
+                "<button id='btn-generate-3' type='button' class='btn my-2 btn-fw'>Chapter</button>"
+            );
+        });
+    }
+    generate_length();
 });

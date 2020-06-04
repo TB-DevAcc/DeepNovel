@@ -133,6 +133,7 @@
 @import "components/mixins/pagination";
 @import "components/mixins/popovers";
 @import "components/mixins/tooltips";
+@import "components/mixins/shadow";
 
 /*-------------------------------------------------------------------*/
 /* === Core Styles === */
@@ -176,6 +177,7 @@
 // @import "components/pricing-table";
 @import "components/editor";
 @import "components/share";
+@import "components/index";
 
 /*-------------------------------------------------------------------*/
 /* === Email === */

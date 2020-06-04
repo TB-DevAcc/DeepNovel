@@ -17978,6 +17978,9 @@ div.tagsinput {
 #toolbar {
   background: #fffcf8;
   color: #000307;
+  border: none;
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 #toolbar #save-button {
@@ -17986,6 +17989,15 @@ div.tagsinput {
 
 #toolbar #delete-button {
   background-color: rgba(252, 66, 74, 0.2);
+}
+
+.buttons {
+  text-align: center;
+}
+
+.buttons button {
+  background-color: #f7b267 !important;
+  color: #000307 !important;
 }
 
 .gedf-wrapper {
@@ -21431,7 +21443,9 @@ div.tagsinput span.tag a {
 .navbar .navbar-menu-wrapper .search input {
   background: rgba(15, 163, 177, 0.4);
   padding: 13px 20px 11px 20px;
-  border: 1px solid #2c2e33;
+  border: none;
+  -webkit-box-shadow: inset 0 0.8px 0.6px rgba(0, 0, 0, 0.034), inset 0 1.9px 1.3px rgba(0, 0, 0, 0.048), inset 0 2.1px 1.01px rgba(0, 0, 0, 0.06), inset 0 5.1px 3.9px rgba(0, 0, 0, 0.072), inset 0 7.8px 5.4px rgba(0, 0, 0, 0.086), inset 0 10.1px 12.1px rgba(0, 0, 0, 0.12);
+          box-shadow: inset 0 0.8px 0.6px rgba(0, 0, 0, 0.034), inset 0 1.9px 1.3px rgba(0, 0, 0, 0.048), inset 0 2.1px 1.01px rgba(0, 0, 0, 0.06), inset 0 5.1px 3.9px rgba(0, 0, 0, 0.072), inset 0 7.8px 5.4px rgba(0, 0, 0, 0.086), inset 0 10.1px 12.1px rgba(0, 0, 0, 0.12);
 }
 
 .navbar .navbar-menu-wrapper .search input::-webkit-input-placeholder {

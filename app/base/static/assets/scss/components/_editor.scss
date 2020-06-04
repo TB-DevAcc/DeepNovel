@@ -6,10 +6,21 @@
 #toolbar {
     background: $card-bg;
     color: $card-description-color;
+    border: none;
+    @include shadow;
     #save-button {
         background-color: rgba(0, 210, 91, 0.2);
     }
     #delete-button {
         background-color: rgba(252, 66, 74, 0.2);
+    }
+}
+
+.buttons {
+    text-align: center;
+    button {
+        background-color: $accent-group-1 !important;
+        color: $text-muted !important ;
+        //width: 70%;
     }
 }
