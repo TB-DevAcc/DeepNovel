@@ -11,15 +11,18 @@
     font-size: calc(#{$default-font-size} - 0.05rem);
     font-weight: $font-weight-light;
     a {
-        color: #0d0d0d; // footer-color
+        color: #f7f6f6; // footer-color
         font-size: inherit;
         text-decoration: None;
         transition: 0.5s;
     }
     a:hover {
-        color: #ffffff; // footer-color-light
+        color: #0d0d0d; // footer-color-light
         font-size: inherit;
         text-decoration: None;
+    }
+    p {
+        color: #f7f6f6; // copyright
     }
     @media (max-width: 991px) {
         margin-left: 0;

@@ -45,17 +45,18 @@ window.onbeforeunload = function () {
 
 function generate() {
     // Ask server for generation
-    $.post("/generate/" + post_id, { length: 1 }, function (data) {
-        quill.insertText(quill.getSelection().index, data, "user");
+    $.post("/generate/" + post_id, { doc: quill.getText(), length: 1 }, function (data) {
+        var s = quill.getSelection().index || 0;
+        quill.insertText(s, data, "user");
         quill.setSelection(quill.getLength(), 0, "user");
     });
 }
 
 // Text generation on tab press
 $("body").keydown(function (e) {
-    var code = e.keyCode || e.which;
+    var code = e.key || e.which;
 
-    if (code === 9) {
+    if (code === 9 || code === "Tab") {
         e.preventDefault();
         generate();
     }
@@ -81,7 +82,7 @@ $("#btn-generate-1").click(function () {
 
     function generate_length() {
         // Ask server for generation
-        $.post("/generate/" + post_id, { length: 1 }, function (data) {
+        $.post("/generate/" + post_id, { doc: quill.getText(), length: 1 }, function (data) {
             quill.insertText(quill.getSelection().index, data, "user");
             quill.setSelection(quill.getLength(), 0, "user");
             $("#btn-generate-1").replaceWith(
@@ -99,7 +100,7 @@ $("#btn-generate-2").click(function () {
 
     function generate_length() {
         // Ask server for generation
-        $.post("/generate/" + post_id, { length: 40 }, function (data) {
+        $.post("/generate/" + post_id, { doc: quill.getText(), length: 40 }, function (data) {
             quill.insertText(quill.getSelection().index, data, "user");
             quill.setSelection(quill.getLength(), 0, "user");
             $("#btn-generate-2").replaceWith(
@@ -117,7 +118,7 @@ $("#btn-generate-3").click(function () {
 
     function generate_length() {
         // Ask server for generation
-        $.post("/generate/" + post_id, { length: 4000 }, function (data) {
+        $.post("/generate/" + post_id, { doc: quill.getText(), length: 4000 }, function (data) {
             quill.insertText(quill.getSelection().index, data, "user");
             quill.setSelection(quill.getLength(), 0, "user");
             $("#btn-generate-3").replaceWith(

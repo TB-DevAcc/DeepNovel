@@ -4,16 +4,21 @@ MIT License
 Copyright (c) 2019 - present AppSeed.us
 """
 
+import re
+
 from flask import abort, flash, json, jsonify, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from jinja2 import TemplateNotFound
+from transformers import AutoTokenizer, GPT2TokenizerFast, TFAutoModelWithLMHead
 
 from app import db, login_manager
 from app.base.forms import PostForm
 from app.base.models import Post, User
-from app.home import blueprint
 
 # from app.base.pipes import AI
+from app.home import blueprint
+
+# ai = AI()
 
 
 @blueprint.route("/index")
@@ -152,26 +157,71 @@ def delete_post(post_id):
 
 ## AI requests
 
-# ai = AI()
+
+model = TFAutoModelWithLMHead.from_pretrained("distilgpt2")
+tokenizer = GPT2TokenizerFast.from_pretrained(
+    "gpt2", unk_token="<|unknown|>", eos_token="<|endoftext|>",  # bos_token="<|beginoftext|>",
+)
+
+
+def gen(prompt, min_length=0, max_length=250):
+
+    print("INPUT:", prompt)
+    # try:
+    #     prompt = prompt[-200:]
+    # except:
+    #     pass
+    # prompt = "<|beginoftext|>" + prompt + "<|endoftext|>"
+    last_dot = prompt.rfind(".")
+    if last_dot == -1:
+        pass
+    else:
+        pass
+        # prompt = prompt[: last_dot + 1] + "<|endoftext|>" + prompt[last_dot + 1 :]
+    print("PROMPT:", prompt)
+
+    inputs = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="tf")
+
+    print("INPUT IDS:", inputs)
+
+    prompt_length = len(
+        tokenizer.decode(inputs[0], skip_special_tokens=False, clean_up_tokenization_spaces=True)
+    )
+    outputs = model.generate(
+        inputs, max_length=max_length, min_length=min_length, do_sample=True, top_p=0.95, top_k=60,
+    )
+    print("OUTPUTS:", outputs)
+    generated = tokenizer.decode(outputs[0])[prompt_length:]
+    print("GENERATED:", generated)
+
+    generated = re.sub("<|beginoftext|>", "", generated)
+    generated = re.sub("<|endoftext|>", "", generated)
+
+    print("GENERATED CLEAN:", generated)
+
+    return generated
+
 
 # Text Generation
 @blueprint.route("/generate/<int:post_id>", methods=["POST"])
 @login_required
 def generate(post_id):
     l = int(request.form["length"])
+    doc = request.form["doc"]
+    post = Post.query.get_or_404(post_id)
+    if post.author != current_user:
+        abort(403)
     if l == 1:
-        post = Post.query.get_or_404(post_id)
-        if post.author != current_user:
-            abort(403)
-        doc = post.content
-        # doc = ai.generate(doc)
-        doc = "GENERATED LINE"
+        doc = gen(doc, max_length=50)
+        # doc = "GENERATED LINE"
         return jsonify(doc), 200
     elif l < 500:
-        doc = "GENERATED PARAGRAPH"
+        doc = gen(doc, min_length=20, max_length=200)
+        # doc = "GENERATED PARAGRAPH"
         return jsonify(doc), 200
     else:
-        doc = "GENERATED CHAPTER"
+        doc = gen(doc, min_length=40, max_length=500)
+        # doc = "GENERATED CHAPTER"
         return jsonify(doc), 200
     abort(500)
 

@@ -14453,7 +14453,7 @@ code {
 }
 
 .footer a {
-  color: #0d0d0d;
+  color: #f7f6f6;
   font-size: inherit;
   -webkit-text-decoration: None;
           text-decoration: None;
@@ -14462,10 +14462,14 @@ code {
 }
 
 .footer a:hover {
-  color: #ffffff;
+  color: #0d0d0d;
   font-size: inherit;
   -webkit-text-decoration: None;
           text-decoration: None;
+}
+
+.footer p {
+  color: #f7f6f6;
 }
 
 @media (max-width: 991px) {
@@ -22282,7 +22286,7 @@ div.tagsinput span.tag a {
 
 .content-wrapper {
   background: rgba(15, 163, 177, 0.4);
-  border-radius: 80px 0px 0px 0px;
+  border-radius: 20px 0px 0px 0px;
   padding: 1.875rem 1.75rem;
   width: 100%;
   -webkit-box-flex: 1;
