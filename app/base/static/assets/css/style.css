@@ -17987,20 +17987,80 @@ div.tagsinput {
           box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-#toolbar #save-button {
-  background-color: rgba(0, 210, 91, 0.2);
-}
-
 #toolbar #delete-button {
   background-color: rgba(252, 66, 74, 0.2);
 }
 
-.buttons {
+.buttons,
+.buttons:active,
+.buttons:hover,
+.buttons:visited, .btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel, .wizard > .actions a,
+.btn:active,
+.fc button:active,
+.ajax-upload-dragdrop .ajax-file-upload:active,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:active,
+.wizard > .actions a:active, .btn:hover, .fc button:hover, .ajax-upload-dragdrop .ajax-file-upload:hover, .swal2-modal .swal2-buttonswrapper .swal2-styled:hover, .wizard > .actions a:hover,
+.btn:visited,
+.fc button:visited,
+.ajax-upload-dragdrop .ajax-file-upload:visited,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:visited,
+.wizard > .actions a:visited {
   text-align: center;
 }
 
-.buttons button {
+.buttons .btn-generate,
+.buttons:active .btn-generate,
+.buttons:hover .btn-generate,
+.buttons:visited .btn-generate,
+.btn .btn-generate,
+.fc button .btn-generate,
+.ajax-upload-dragdrop .ajax-file-upload .btn-generate,
+.swal2-modal .swal2-buttonswrapper .swal2-styled .btn-generate,
+.wizard > .actions a .btn-generate,
+.btn:active .btn-generate,
+.fc button:active .btn-generate,
+.ajax-upload-dragdrop .ajax-file-upload:active .btn-generate,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:active .btn-generate,
+.wizard > .actions a:active .btn-generate,
+.btn:hover .btn-generate,
+.fc button:hover .btn-generate,
+.ajax-upload-dragdrop .ajax-file-upload:hover .btn-generate,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:hover .btn-generate,
+.wizard > .actions a:hover .btn-generate,
+.btn:visited .btn-generate,
+.fc button:visited .btn-generate,
+.ajax-upload-dragdrop .ajax-file-upload:visited .btn-generate,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:visited .btn-generate,
+.wizard > .actions a:visited .btn-generate {
   background-color: #f7b267 !important;
+  color: #000307 !important;
+}
+
+.buttons .btn-analyze,
+.buttons:active .btn-analyze,
+.buttons:hover .btn-analyze,
+.buttons:visited .btn-analyze,
+.btn .btn-analyze,
+.fc button .btn-analyze,
+.ajax-upload-dragdrop .ajax-file-upload .btn-analyze,
+.swal2-modal .swal2-buttonswrapper .swal2-styled .btn-analyze,
+.wizard > .actions a .btn-analyze,
+.btn:active .btn-analyze,
+.fc button:active .btn-analyze,
+.ajax-upload-dragdrop .ajax-file-upload:active .btn-analyze,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:active .btn-analyze,
+.wizard > .actions a:active .btn-analyze,
+.btn:hover .btn-analyze,
+.fc button:hover .btn-analyze,
+.ajax-upload-dragdrop .ajax-file-upload:hover .btn-analyze,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:hover .btn-analyze,
+.wizard > .actions a:hover .btn-analyze,
+.btn:visited .btn-analyze,
+.fc button:visited .btn-analyze,
+.ajax-upload-dragdrop .ajax-file-upload:visited .btn-analyze,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:visited .btn-analyze,
+.wizard > .actions a:visited .btn-analyze {
+  background-color: #0fa3b1 !important;
   color: #000307 !important;
 }
 

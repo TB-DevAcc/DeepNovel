@@ -9,9 +9,9 @@ pipes = {
         "fill-mask"
     ),  # print(nlp(f"HuggingFace is creating a {nlp.tokenizer.mask_token} that the community uses."))
     "tg": pipeline(
-        "text-generation"
+        "text-generation", "distilgpt2"
     ),  # print(text_generator("As far as I am concerned, I will", max_length=50))
-    "ne": pipeline("ner"),  # print(nlp(sequence))
+    "ne": pipeline("ner", grouped_entities=True),  # print(nlp(sequence))
     # "sm": pipeline("summarization"),  # print(summarizer(ARTICLE, max_length=130, min_length=30))
     "tr": pipeline(
         "translation_en_to_de"
@@ -49,11 +49,11 @@ class AI:
         """
         return self.pipes["tr"](doc)
 
-    def answer(self, question, doc):
+    def answer(self, question=None, context=None):
         """
         answers a question in the context of the document
         """
-        return self.pipes["qa"](question, context=doc)
+        return self.pipes["qa"](question=question, context=context)
 
     def fill(self, doc):
         """

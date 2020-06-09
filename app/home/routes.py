@@ -156,89 +156,76 @@ def delete_post(post_id):
 
 ## AI requests
 
-
-# model = TFAutoModelWithLMHead.from_pretrained("distilgpt2")
-# tokenizer = GPT2TokenizerFast.from_pretrained(
-#     "gpt2", unk_token="<|unknown|>", eos_token="<|endoftext|>",  # bos_token="<|beginoftext|>",
-# )
-
-
-# def gen(prompt, min_length=0, max_length=250):
-
-#     print("INPUT:", prompt)
-#     # try:
-#     #     prompt = prompt[-200:]
-#     # except:
-#     #     pass
-#     # prompt = "<|beginoftext|>" + prompt + "<|endoftext|>"
-#     last_dot = prompt.rfind(".")
-#     if last_dot == -1:
-#         pass
-#     else:
-#         pass
-#         # prompt = prompt[: last_dot + 1] + "<|endoftext|>" + prompt[last_dot + 1 :]
-#     print("PROMPT:", prompt)
-
-#     inputs = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="tf")
-
-#     print("INPUT IDS:", inputs)
-
-#     prompt_length = len(
-#         tokenizer.decode(inputs[0], skip_special_tokens=False, clean_up_tokenization_spaces=True)
-#     )
-#     outputs = model.generate(
-#         inputs, max_length=max_length, min_length=min_length, do_sample=True, top_p=0.95, top_k=60,
-#     )
-#     print("OUTPUTS:", outputs)
-#     generated = tokenizer.decode(outputs[0])[prompt_length:]
-#     print("GENERATED:", generated)
-
-#     generated = re.sub("<|beginoftext|>", "", generated)
-#     generated = re.sub("<|endoftext|>", "", generated)
-
-#     print("GENERATED CLEAN:", generated)
-
-#     return generated
-
-
 # Text Generation
 @blueprint.route("/generate/<int:post_id>", methods=["POST"])
 @login_required
 def generate(post_id):
     l = int(request.form["length"])
     doc = request.form["doc"]
-    doc = doc.split(".")[-1]
+    try:
+        doc = doc.split(".")[-3]
+    except IndexError:
+        doc = doc.split(".")[-1]
     doc_length = len(doc)
     post = Post.query.get_or_404(post_id)
     if post.author != current_user:
         abort(403)
     if l == 1:
-        doc = ai.generate(doc)[0]["generated_text"][doc_length:]
-        print("GENERATED", doc)
-        # doc = gen(doc, max_length=50)
+        doc = ai.generate(doc, max_length=50)[0]["generated_text"][doc_length:]
         # doc = "GENERATED LINE"
+        print("GENERATED", doc)
         return jsonify(doc), 200
     elif l < 500:
         doc = ai.generate(doc, min_length=50)[0]["generated_text"][doc_length:]
         # doc = "GENERATED PARAGRAPH"
+        print("GENERATED", doc)
         return jsonify(doc), 200
     else:
         doc = ai.generate(doc, min_length=100)[0]["generated_text"][doc_length:]
         # doc = "GENERATED CHAPTER"
+        print("GENERATED", doc)
         return jsonify(doc), 200
     abort(500)
 
 
 # question-answering
-@blueprint.route("/qa/<int:post_id>/<string:question>", methods=["GET"])
+@blueprint.route("/answer/<int:post_id>", methods=["POST"])
 @login_required
-def answer(post_id, question):
+def answer(post_id):
     post = Post.query.get_or_404(post_id)
     if post.author != current_user:
         abort(403)
-    doc = post.content
+    doc = request.form["doc"]
+    question = request.form["question"]
     print("DOC", doc)
     print("Q", question)
-    # doc = ai.answer(question, doc)
-    doc = "Answer"
+    doc = ai.answer(question=question, context=doc)
+    # doc = "Answer"
     return jsonify(doc), 200
+
+
+# analyzing
+@blueprint.route("/analyze/<int:post_id>", methods=["POST"])
+@login_required
+def analyze(post_id):
+    post = Post.query.get_or_404(post_id)
+    if post.author != current_user:
+        abort(403)
+    doc = request.form["doc"]
+    doc = ai.mark_entities(doc)
+    print("ANALYSIS:", doc)
+    # Postprocess output into set of persons, organizations and locations
+    P = set()
+    O = set()
+    L = set()
+    for e in doc:
+        if e["entity_group"] == "I-PER" or e["entity_group"] == "B-PER":
+            P.add(e["word"])
+        elif e["entity_group"] == "I-ORG" or e["entity_group"] == "B-ORG":
+            O.add(e["word"])
+        elif e["entity_group"] == "I-LOC" or e["entity_group"] == "B-LOC":
+            L.add(e["word"])
+    print("ANALYSIS P:", P)
+    print("ANALYSIS O:", O)
+    print("ANALYSIS L:", L)
+    return jsonify({"P": list(P), "O": list(O), "L": list(L)}), 200

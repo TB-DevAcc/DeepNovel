@@ -8,19 +8,26 @@
     color: $card-description-color;
     border: none;
     @include shadow;
-    #save-button {
-        background-color: rgba(0, 210, 91, 0.2);
-    }
     #delete-button {
         background-color: rgba(252, 66, 74, 0.2);
     }
 }
 
-.buttons {
+.buttons,
+.buttons:active,
+.buttons:hover,
+.buttons:visited,
+.btn,
+.btn:active,
+.btn:hover,
+.btn:visited {
     text-align: center;
-    button {
+    .btn-generate {
         background-color: $accent-group-1 !important;
         color: $text-muted !important ;
-        //width: 70%;
+    }
+    .btn-analyze {
+        background-color: opacify($bg-group, 0.6) !important;
+        color: $text-muted !important ;
     }
 }
