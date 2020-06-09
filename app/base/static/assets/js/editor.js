@@ -83,7 +83,8 @@ $("#btn-generate-1").click(function () {
     function generate_length() {
         // Ask server for generation
         $.post("/generate/" + post_id, { doc: quill.getText(), length: 1 }, function (data) {
-            quill.insertText(quill.getSelection().index, data, "user");
+            var s = quill.getSelection().index || 0;
+            quill.insertText(s, data, "user");
             quill.setSelection(quill.getLength(), 0, "user");
             $("#btn-generate-1").replaceWith(
                 "<button id='btn-generate-1' type='button' class='btn my-2 btn-fw'>Line</button>"
@@ -101,7 +102,8 @@ $("#btn-generate-2").click(function () {
     function generate_length() {
         // Ask server for generation
         $.post("/generate/" + post_id, { doc: quill.getText(), length: 40 }, function (data) {
-            quill.insertText(quill.getSelection().index, data, "user");
+            var s = quill.getSelection().index || 0;
+            quill.insertText(s, data, "user");
             quill.setSelection(quill.getLength(), 0, "user");
             $("#btn-generate-2").replaceWith(
                 "<button id='btn-generate-2' type='button' class='btn my-2 btn-fw'>Paragraph</button>"
@@ -119,7 +121,8 @@ $("#btn-generate-3").click(function () {
     function generate_length() {
         // Ask server for generation
         $.post("/generate/" + post_id, { doc: quill.getText(), length: 4000 }, function (data) {
-            quill.insertText(quill.getSelection().index, data, "user");
+            var s = quill.getSelection().index || 0;
+            quill.insertText(s, data, "user");
             quill.setSelection(quill.getLength(), 0, "user");
             $("#btn-generate-3").replaceWith(
                 "<button id='btn-generate-3' type='button' class='btn my-2 btn-fw'>Chapter</button>"
