@@ -25,7 +25,7 @@
             background $action-transition-duration $action-transition-timing-function;
         -ms-transition: width $action-transition-duration $action-transition-timing-function,
             background $action-transition-duration $action-transition-timing-function;
-        background: $content-bg;
+        background: #9fd8dc; //$content-bg;
         border-radius: 0px 0px 20px 0px;
         width: $sidebar-width-lg;
         height: $navbar-height;
@@ -461,9 +461,9 @@
 
 .sidebar-tinted {
     .sidebar {
-        background: $sidebar-tinted-bg;
+        background: #9fd8dc; //$sidebar-tinted-bg;
         .sidebar-brand-wrapper {
-            background: $sidebar-tinted-bg;
+            background: #9fd8dc; //$sidebar-tinted-bg;
         }
         .nav {
             .nav-item {

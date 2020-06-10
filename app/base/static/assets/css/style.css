@@ -14374,7 +14374,6 @@ address p {
 /* Miscellanoeous */
 body,
 html {
-  overflow-x: hidden;
   padding-right: 0 !important;
   background-color: #fffcf8;
 }
@@ -14389,10 +14388,6 @@ html {
 *:-webkit-full-screen,
 *:fullscreen *:-ms-fullscreen {
   overflow: auto;
-}
-
-.container-scroller {
-  overflow: hidden;
 }
 
 pre {
@@ -17983,8 +17978,12 @@ div.tagsinput {
   background: #fffcf8;
   color: #000307;
   border: none;
-  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
-          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1031;
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 -2.8px 2.2px rgba(0, 0, 0, 0.014), 0 -6.7px 5.3px rgba(0, 0, 0, 0.028), 0 -12.5px 10px rgba(0, 0, 0, 0.03), 0 -22.3px 17.9px rgba(0, 0, 0, 0.032);
+          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 -2.8px 2.2px rgba(0, 0, 0, 0.014), 0 -6.7px 5.3px rgba(0, 0, 0, 0.028), 0 -12.5px 10px rgba(0, 0, 0, 0.03), 0 -22.3px 17.9px rgba(0, 0, 0, 0.032);
 }
 
 #toolbar #delete-button {
@@ -21588,7 +21587,7 @@ div.tagsinput span.tag a {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  background: rgba(15, 163, 177, 0.4);
+  background: #9fd8dc;
   border-radius: 0px 0px 20px 0px;
   width: 244px;
   height: 70px;
@@ -22067,11 +22066,11 @@ div.tagsinput span.tag a {
 }
 
 .sidebar-tinted .sidebar {
-  background: #fa424a;
+  background: #9fd8dc;
 }
 
 .sidebar-tinted .sidebar .sidebar-brand-wrapper {
-  background: #fa424a;
+  background: #9fd8dc;
 }
 
 .sidebar-tinted .sidebar .nav .nav-item .nav-link {

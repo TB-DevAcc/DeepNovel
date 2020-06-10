@@ -7,6 +7,9 @@
     background: $card-bg;
     color: $card-description-color;
     border: none;
+    position: sticky;
+    top: 0;
+    z-index: 1031; // navbar 1030
     @include shadow;
     #delete-button {
         background-color: rgba(252, 66, 74, 0.2);

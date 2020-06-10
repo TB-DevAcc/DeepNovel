@@ -1,7 +1,7 @@
 /* Miscellanoeous */
 body,
 html {
-    overflow-x: hidden;
+    //overflow-x: hidden; uncomment if sticky is no longer used
     padding-right: 0 !important; // resets padding right added by Bootstrap modal
     background-color: $navbar-bg;
 }
@@ -12,9 +12,10 @@ html {
     overflow: auto;
 }
 
-.container-scroller {
-    overflow: hidden;
-}
+// Uncomment if sticky is not longer used
+// .container-scroller {
+//     overflow: hidden;
+// }
 
 pre {
     background: color(gray-lighter);
