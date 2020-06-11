@@ -27,6 +27,7 @@ node_modules
 *.sql
 *.sqlite
 *.sqlite*
+.env
 
 # OS generated files #
 ######################

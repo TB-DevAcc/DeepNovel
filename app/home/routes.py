@@ -176,7 +176,7 @@ def generate(post_id):
         print("GENERATED", doc)
         return jsonify(doc), 200
     elif l < 500:
-        doc = ai.generate(doc, min_length=50)[0]["generated_text"][doc_length:]
+        doc = ai.generate(doc, min_length=30, max_length=100)[0]["generated_text"][doc_length:]
         # doc = "GENERATED PARAGRAPH"
         print("GENERATED", doc)
         return jsonify(doc), 200

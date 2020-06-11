@@ -89,7 +89,8 @@ $(function () {
 
 // Buttons
 
-$("#btn-generate-1").click(function () {
+$(document).on("click", "#btn-generate-1", function () {
+    console.log("Button 1 clicked");
     $("#btn-generate-1").replaceWith(
         "<div id='btn-generate-1' class='spinner-grow text-warning'></div>"
     );
@@ -108,7 +109,7 @@ $("#btn-generate-1").click(function () {
     generate_length();
 });
 
-$("#btn-generate-2").click(function () {
+$(document).on("click", "#btn-generate-2", function () {
     $("#btn-generate-2").replaceWith(
         "<div id='btn-generate-2' class='spinner-grow text-warning'></div>"
     );
@@ -127,7 +128,7 @@ $("#btn-generate-2").click(function () {
     generate_length();
 });
 
-$("#btn-generate-3").click(function () {
+$(document).on("click", "#btn-generate-3", function () {
     $("#btn-generate-3").replaceWith(
         "<div id='btn-generate-3' class='spinner-grow text-warning'></div>"
     );
@@ -189,11 +190,11 @@ function find_replace(word, color) {
 
         // apply style..
         console.log("Marking", word, color, "at", indices, length);
-        indices.forEach((index) => quill.formatText(index, length, { color: color }, true));
+        indices.forEach((index) => quill.formatText(index, length, { background: color }, true));
     }
 }
 
-$("#btn-analyze").click(function () {
+$(document).on("click", "#btn-analyze", function () {
     $("#btn-analyze").replaceWith("<div id='btn-analyze' class='spinner-grow text-info'></div>");
     //$(".loader-wrapper").fadeIn("slow");
     // Ask server for generation
@@ -203,19 +204,19 @@ $("#btn-analyze").click(function () {
         var i;
         for (i = 0; i < data["P"].length; i++) {
             console.log("Marking people");
-            find_replace(data["P"][i], "rgb(255, 0, 0)");
+            find_replace(data["P"][i], "rgba(238, 30, 58, 0.6)");
         }
         // Mark Organizations
         var i;
         for (i = 0; i < data["O"].length; i++) {
             console.log("Marking organizations");
-            find_replace(data["O"][i], "rgb(0, 0, 255)");
+            find_replace(data["O"][i], "rgba(24, 88, 161, 0.6)");
         }
         // Mark Locations
         var i;
         for (i = 0; i < data["L"].length; i++) {
             console.log("Marking locations");
-            find_replace(data["L"][i], "rgb(0, 255, 0)");
+            find_replace(data["L"][i], "rgba(82, 99, 14, 0.6)");
         }
 
         // reset
@@ -229,5 +230,5 @@ $("#btn-analyze").click(function () {
 // Reset Colors
 $("#btn-reset-colors").click(function () {
     console.log("RESET COLORS");
-    quill.formatText(0, quill.getLength(), { color: "rgb(0, 0, 0)" });
+    quill.formatText(0, quill.getLength(), { background: "rgb(255, 255, 255)" });
 });

@@ -32,7 +32,7 @@
                   <th> Owner </th>
                   <th> Title </th>
                   <th> Created on </th>
-                  <th> Preview </th>
+                  <!-- <th> Preview </th> -->
                 </tr>
               </thead>
               <tbody>
@@ -46,7 +46,7 @@
                       {{ posts[i].title }}
                     </a></td>
                   <td> {{ posts[i].date_posted }} </td>
-                  <td> {{ ' '.join(posts[i].content.split()[:5]) | safe + ' ...' }} </td>
+                  <!-- <td> {{ ' '.join(posts[i].content.split()[:5]) | safe + ' ...' }} </td> -->
                 </tr>
                 {% endfor %}
               </tbody>
