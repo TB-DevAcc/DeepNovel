@@ -7,7 +7,7 @@
 
 ## Basic Overview
 
-This project is concerned with building an artificial intelligence **application**, that can **write novels and illustrate** them. In the accompanying [Document](https://hackmd.io/@TB-DevAcc/ryPc0v7sI) we will outline the different models and techniques used to achieve a result, that should be as little distinguishable from human writing as possible. Therefore we will provide examples of generated text from short text input, as well as images, that were generated from text samples from the generated text. We will also discuss the limitations and future improvements that can be made.
+This project is concerned with building an artificial intelligence **application**, that can help you **write** through Text Generation, Entity Analysis and Question Answering. In the accompanying [Document](https://hackmd.io/@TB-DevAcc/ryPc0v7sI) we will outline the different models and techniques used to achieve a result, that should be as little distinguishable from human writing as possible. Therefore we will provide examples of generated text from short text inputWe will also discuss the limitations and future improvements that can be made.
 
 #### :date: Timeframe for the project
 
@@ -18,12 +18,12 @@ Completion of the webapp and model was meant to be achieved within 3 weeks. (25.
 To view the complete WebApp run main.py to start the development server. Here is a short preview of the site:
 
 <p align="center">
+    <img src="media/POC2.jpg" witdh="70%">
+<p>
+<br><br>
+<p align="center">
     <img src="media/POC.jpg" witdh="70%">
 <p>
-<!-- <br><br>
-<p align="center">
-    <img src="static/images/preview2.jpg" witdh="70%">
-<p> -->
 
 ### :boy: Author
 
