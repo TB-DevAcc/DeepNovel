@@ -70,7 +70,7 @@ def post(post_id):
     form = PostForm()
     toolbar_formats = formats = [
         ["bold", "italic", "underline", "strike"],
-        ["color", "background"],
+        # ["color", "background"],
         [("script", "sub"), ("script", "super")],
         [*[("header", f"{i}") for i in range(1, 3)], "blockquote", "code-block"],
         [("list", "ordered"), ("list", "bullet"), ("indent", "-1"), ("indent", "+1")],

@@ -41,6 +41,15 @@ window.onbeforeunload = function () {
     }
 };
 
+// Tweet
+
+quill.on("selection-change", function (range, oldRange, source) {
+    var current_selection = "https://twitter.com/intent/tweet?text=";
+    current_selection = current_selection + encodeURIComponent(quill.getText(range));
+    $("#tweet").attr("href", current_selection);
+    console.log("TWEET", $("#tweet").attr("href"));
+});
+
 // AI
 
 function generate() {
