@@ -171,17 +171,18 @@ def generate(post_id):
     if post.author != current_user:
         abort(403)
     if l == 1:
+        print("PROMPT", doc)
         doc = ai.generate(doc, max_length=50)[0]["generated_text"][doc_length:]
         # doc = "GENERATED LINE"
         print("GENERATED", doc)
         return jsonify(doc), 200
     elif l < 500:
-        doc = ai.generate(doc, min_length=30, max_length=100)[0]["generated_text"][doc_length:]
+        doc = ai.generate(doc, min_length=50, max_length=120)[0]["generated_text"][doc_length:]
         # doc = "GENERATED PARAGRAPH"
         print("GENERATED", doc)
         return jsonify(doc), 200
     else:
-        doc = ai.generate(doc, min_length=100)[0]["generated_text"][doc_length:]
+        doc = ai.generate(doc, min_length=120)[0]["generated_text"][doc_length:]
         # doc = "GENERATED CHAPTER"
         print("GENERATED", doc)
         return jsonify(doc), 200
